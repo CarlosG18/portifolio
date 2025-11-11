@@ -1,0 +1,471 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Desenvolvedor Backend</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Carregando portfólio...</p>
+        </div>
+    </div>
+
+    <!-- Header Hero -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Olá, eu sou</span>
+                        <span class="typing-text">{{sobre.nome}}</span>
+                    </h1>
+                    <p class="hero-subtitle">{{sobre.cargo}}</p>
+                    <p class="hero-description">
+                        {{sobre.descritivo}}
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#profissional" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i>
+                            Ver Projetos
+                        </a>
+                        <a href="#contato" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            Contato
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <img src="{{sobre.foto_perfil.url}}" alt="avatar">
+                            <div class="image-overlay">
+                                <i class="fas fa-code"></i>
+                            </div>
+                        </div>
+                        <div class="profile-info">
+                            <h3>{{sobre.nome}}</h3>
+                            <p>{{sobre.cargo}}</p>
+                            <div class="status">
+                                <div class="status-dot"></div>
+                                <span>Disponível para novos projetos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="{{estatisticas.anos_experiencia}}">0</div>
+                    <div class="stat-label">Anos de Experiência</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="{{estatisticas.projetos_concluidos}}">0</div>
+                    <div class="stat-label">Projetos Concluídos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="{{estatisticas.tecnologias_dominadas}}">0</div>
+                    <div class="stat-label">Tecnologias Dominadas</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="tabs-nav">
+        <div class="container">
+            <div class="tabs-wrapper">
+                <button class="tab-button active" data-tab="profissional">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Profissional</span>
+                </button>
+                <button class="tab-button" data-tab="academico">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Acadêmico</span>
+                </button>
+                <button class="tab-button" data-tab="pessoal">
+                    <i class="fas fa-user"></i>
+                    <span>Pessoal</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Professional Tab -->
+        <section id="profissional" class="tab-content active">
+            <div class="section-header">
+                <h2>Experiência Profissional</h2>
+                <p>Minha jornada e conquistas no desenvolvimento backend</p>
+            </div>
+
+            <!-- Experience Timeline -->
+            <div class="section">
+                <h3><i class="fas fa-timeline"></i> Linha do Tempo Profissional</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2020 - Presente</div>
+                        <div class="timeline-content">
+                            <h4>Desenvolvedor Backend Sênior</h4>
+                            <span class="company">Empresa XYZ</span>
+                            <p>Liderança no desenvolvimento de arquiteturas de microsserviços, otimização de performance e mentoria de desenvolvedores juniores.</p>
+                            <div class="tech-tags">
+                                <span>Java</span>
+                                <span>Spring Boot</span>
+                                <span>Kubernetes</span>
+                                <span>AWS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2018 - 2020</div>
+                        <div class="timeline-content">
+                            <h4>Desenvolvedor Backend Pleno</h4>
+                            <span class="company">Empresa ABC</span>
+                            <p>Desenvolvimento de APIs RESTful, implementação de sistemas de cache e integração com serviços de terceiros.</p>
+                            <div class="tech-tags">
+                                <span>Node.js</span>
+                                <span>Python</span>
+                                <span>Redis</span>
+                                <span>Docker</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2016 - 2018</div>
+                        <div class="timeline-content">
+                            <h4>Desenvolvedor Júnior</h4>
+                            <span class="company">Startup Tech</span>
+                            <p>Início da carreira com foco em aprendizado de boas práticas, padrões de código e desenvolvimento de funcionalidades básicas.</p>
+                            <div class="tech-tags">
+                                <span>JavaScript</span>
+                                <span>SQL</span>
+                                <span>Git</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="section">
+                <h3><i class="fas fa-cogs"></i> Habilidades Técnicas</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Linguagens</h4>
+                        <div class="skill-bars">
+                            <div class="skill-bar">
+                                <span>Java</span>
+                                <div class="bar">
+                                    <div class="progress" style="width: 95%"></div>
+                                </div>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <span>Python</span>
+                                <div class="bar">
+                                    <div class="progress" style="width: 90%"></div>
+                                </div>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <span>JavaScript/Node.js</span>
+                                <div class="bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                                <span>85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Tecnologias & Ferramentas</h4>
+                        <div class="skills-cloud">
+                            <span class="skill-tag advanced">Spring Boot</span>
+                            <span class="skill-tag advanced">Docker</span>
+                            <span class="skill-tag advanced">Kubernetes</span>
+                            <span class="skill-tag intermediate">AWS</span>
+                            <span class="skill-tag advanced">PostgreSQL</span>
+                            <span class="skill-tag intermediate">MongoDB</span>
+                            <span class="skill-tag advanced">Redis</span>
+                            <span class="skill-tag intermediate">Kafka</span>
+                            <span class="skill-tag advanced">Git</span>
+                            <span class="skill-tag intermediate">Jenkins</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <div class="section">
+                <h3><i class="fas fa-star"></i> Projetos Destacados</h3>
+                <div class="projects-grid">
+                    <div class="project-card featured">
+                        <div class="project-badge">Destaque</div>
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1556655848-f3a79cc6d4a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sistema de E-commerce">
+                        </div>
+                        <div class="project-content">
+                            <h4>Sistema de E-commerce</h4>
+                            <p>Plataforma completa de e-commerce processando mais de 10.000 transações diárias com 99.9% de uptime.</p>
+                            <div class="project-tech">
+                                <span>Java</span>
+                                <span>Spring Boot</span>
+                                <span>MySQL</span>
+                                <span>Redis</span>
+                            </div>
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <i class="fas fa-users"></i>
+                                    <span>10k+ usuários</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>200ms response</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="API de Pagamentos">
+                        </div>
+                        <div class="project-content">
+                            <h4>API de Pagamentos</h4>
+                            <p>Sistema de processamento de pagamentos com múltiplos gateways e alta segurança.</p>
+                            <div class="project-tech">
+                                <span>Node.js</span>
+                                <span>Express</span>
+                                <span>MongoDB</span>
+                                <span>Stripe API</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1633419461181-2e4d4f3c9778?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sistema de Autenticação">
+                        </div>
+                        <div class="project-content">
+                            <h4>Microsserviço de Autenticação</h4>
+                            <p>Sistema centralizado de autenticação JWT para múltiplas aplicações.</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>Django</span>
+                                <span>PostgreSQL</span>
+                                <span>JWT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Tab -->
+        <section id="academico" class="tab-content">
+            <div class="section-header">
+                <h2>Formação Acadêmica</h2>
+                <p>Minha jornada de aprendizado e qualificações</p>
+            </div>
+
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Mestrado em Ciência da Computação</h3>
+                        <span class="institution">Universidade Federal</span>
+                        <span class="period">2018 - 2020</span>
+                        <p>Pesquisa focada em otimização de algoritmos para processamento de grandes volumes de dados em sistemas distribuídos.</p>
+                        <div class="education-tags">
+                            <span>Big Data</span>
+                            <span>Algoritmos</span>
+                            <span>Distributed Systems</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Bacharelado em Sistemas de Informação</h3>
+                        <span class="institution">Universidade Estadual</span>
+                        <span class="period">2014 - 2018</span>
+                        <p>Formação completa em desenvolvimento de software, arquitetura de sistemas e gestão de projetos de tecnologia.</p>
+                        <div class="education-tags">
+                            <span>Software Engineering</span>
+                            <span>Database Design</span>
+                            <span>Project Management</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="section">
+                <h3><i class="fas fa-award"></i> Certificações</h3>
+                <div class="certifications-grid">
+                    <div class="certification-card">
+                        <div class="cert-badge aws">
+                            <i class="fab fa-aws"></i>
+                        </div>
+                        <div class="cert-content">
+                            <h4>AWS Certified Solutions Architect</h4>
+                            <span class="cert-issuer">Amazon Web Services</span>
+                            <span class="cert-date">2021</span>
+                        </div>
+                    </div>
+                    <div class="certification-card">
+                        <div class="cert-badge oracle">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="cert-content">
+                            <h4>Oracle Java SE 11 Developer</h4>
+                            <span class="cert-issuer">Oracle</span>
+                            <span class="cert-date">2020</span>
+                        </div>
+                    </div>
+                    <div class="certification-card">
+                        <div class="cert-badge scrum">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="cert-content">
+                            <h4>Scrum Master Certified</h4>
+                            <span class="cert-issuer">Scrum Alliance</span>
+                            <span class="cert-date">2019</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Tab -->
+        <section id="pessoal" class="tab-content">
+            <div class="section-header">
+                <h2>Interesses Pessoais</h2>
+                <p>Um pouco sobre minha vida além do código</p>
+            </div>
+
+            <div class="personal-grid">
+                <div class="personal-card">
+                    <div class="personal-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Sobre Mim</h3>
+                    <p>Sou um desenvolvedor backend apaixonado por resolver problemas complexos e criar soluções escaláveis. Acredito que código bem escrito pode transformar negócios e melhorar vidas.</p>
+                </div>
+
+                <div class="personal-card">
+                    <div class="personal-icon">
+                        <i class="fas fa-hiking"></i>
+                    </div>
+                    <h3>Hobbies & Interesses</h3>
+                    <div class="hobbies-list">
+                        <div class="hobby-item">
+                            <i class="fas fa-book"></i>
+                            <span>Leitura técnica e ficção</span>
+                        </div>
+                        <div class="hobby-item">
+                            <i class="fas fa-running"></i>
+                            <span>Corrida e ciclismo</span>
+                        </div>
+                        <div class="hobby-item">
+                            <i class="fas fa-camera"></i>
+                            <span>Fotografia</span>
+                        </div>
+                        <div class="hobby-item">
+                            <i class="fas fa-plane"></i>
+                            <span>Viagens</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="personal-card">
+                    <div class="personal-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Voluntariado</h3>
+                    <ul class="volunteering-list">
+                        <li>Mentor em programa de capacitação de jovens desenvolvedores</li>
+                        <li>Organizador de eventos de tecnologia na comunidade</li>
+                        <li>Contribuições para projetos open source</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contato">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Vamos Trabalhar Juntos?</h3>
+                    <p>Estou sempre aberto a discutir novos projetos e oportunidades.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>{{contato.email}}</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>{{contato.numero}}</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Natal - RN, Brasil</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Conecte-se Comigo</h3>
+                    <div class="social-links">
+                        {% for rede in contato.redes.all %}
+                            <a target="_blank" href="{% if rede.link %} {{ rede.link }} {% endif %}" class="social-link {{rede.nome|lower}}">
+                                <i class="fab fa-{{rede.nome|lower}}"></i>
+                            </a>
+                        {% empty %}
+                            <p>Nenhuma rede social cadastrada para este contato.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Carlos Gabriel. Todos os direitos reservados.</p>
+                <p>Desenvolvido com <i class="fas fa-heart"></i> e muito código</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

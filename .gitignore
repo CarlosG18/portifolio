@@ -1,0 +1,80 @@
+# ===================================
+# .gitignore para projeto Django
+# ===================================
+
+# Arquivos e pastas do Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Ambiente virtual
+env/
+venv/
+ENV/
+.venv/
+.virtualenv/
+
+# Configurações locais e segredos
+*.env
+.env.*
+*.secret
+secrets.json
+settings_local.py
+
+# Banco de dados local
+db.sqlite3
+
+# Arquivos de log
+*.log
+
+# Cache do Django
+*.pot
+*.pyc
+*.mo
+
+# Diretórios de build e distribuição
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos do editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos de testes e cobertura
+.coverage
+.tox/
+.nox/
+htmlcov/
+pytest_cache/
+
+# Arquivos gerados por ferramentas de lint/format
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+ruff_cache/
+
+# Static e media files (gerados dinamicamente)
+staticfiles/
+media/
+
+# Migrations (ignorar todos os diretórios de migrations)
+*/migrations/*00*.py
+!*/migrations/__init__.py
+
+# Templates compilados (se aplicável)
+*.html.py
+
+# Arquivos temporários
+tmp/
+temp/
